@@ -1,0 +1,36 @@
+.online {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(36, 230, 36);
+  position: absolute;
+  z-index: 100;
+  bottom: 40%;
+  left: -15px;
+}
+
+.offline {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(228, 35, 28);
+  position: absolute;
+  z-index: 100;
+  bottom: 40%;
+  left: -15px;
+}
+
+.friendList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.item {
+  position: relative;
+}
