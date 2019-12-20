@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-app-class"]=this["webpackJsonpreact-app-class"]||[]).push([[0],[,,function(s,p,c){s.exports=c(3)},function(s,p,c){"use strict";c.r(p);c(0),c(5)}],[[2,1,2]]]);
-//# sourceMappingURL=main.2725c2d0.chunk.js.map
