@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.button {
+  width: 100px;
+  cursor: pointer;
+  background-color: rgb(167, 172, 216);
+  border: solid 1px rgb(27, 27, 68);
+}
