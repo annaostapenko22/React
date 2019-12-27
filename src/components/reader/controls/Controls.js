@@ -33,7 +33,7 @@ class Controls extends Component {
         <button
           type="button"
           onClick={this.handleClickNext}
-          disabled={this.props.items === this.props.publication.length - 2}
+          disabled={this.props.items === this.props.publication.length - 1}
         >
           Вперед
         </button>
