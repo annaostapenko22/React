@@ -8,11 +8,12 @@ class Contacts extends Component {
         <h3>Contacts</h3>
         <SearchPanel onHandleFilter={this.props.onHandleFilter} />
         <ul>
-          {this.props.value.map(elem => (
-            <li key={elem.id} data-value={elem.id}>
-              <ContactItem {...elem} handleDelete={this.props.handleDelete} />
-            </li>
-          ))}
+          {this.props.value &&
+            this.props.value.map(elem => (
+              <li key={elem.id} data-value={elem.id}>
+                <ContactItem {...elem} handleDelete={this.props.handleDelete} />
+              </li>
+            ))}
         </ul>
       </div>
     );

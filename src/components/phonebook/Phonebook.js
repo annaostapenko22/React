@@ -67,13 +67,16 @@ class Phonebook extends Component {
   };
 
   filterItems = (filter, contacts) => {
-    let contactList = [...contacts];
-    if (filter) {
-      contactList = contactList.filter(elem =>
-        elem.name.toLowerCase().includes(filter),
-      );
+    if (this.state.contacts) {
+      let contactList = [...contacts];
+
+      if (filter) {
+        contactList = contactList.filter(elem =>
+          elem.name.toLowerCase().includes(filter),
+        );
+      }
+      return contactList;
     }
-    return contactList;
   };
 
   render() {
