@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import shortid from 'short-id';
 import Contacts from './contacts/Contacts';
 import styles from '../phonebook/Phonebook.module.css';
-const users = JSON.parse(localStorage.getItem('users'));
+
 class Phonebook extends Component {
   state = {
-    contacts: users ? users : [],
+    contacts: [],
     filter: '',
     name: '',
     number: '',
   };
   componentDidMount() {
-    localStorage.setItem('users', JSON.stringify(this.state.contacts));
+    const users = JSON.parse(localStorage.getItem('users'));
+    this.setState({ contacts: users });
   }
   componentDidUpdate(prevState) {
     if (prevState.contacts !== this.state.contacts) {
