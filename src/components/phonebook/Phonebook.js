@@ -2,21 +2,24 @@ import React, { Component } from 'react';
 import shortid from 'short-id';
 import Contacts from './contacts/Contacts';
 import styles from '../phonebook/Phonebook.module.css';
+const users = JSON.parse(localStorage.getItem('users'));
 class Phonebook extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: users ? users : [],
     filter: '',
     name: '',
     number: '',
   };
+  componentDidMount() {
+    localStorage.setItem('users', JSON.stringify(this.state.contacts));
+  }
+  componentDidUpdate(prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('users', JSON.stringify(this.state.contacts));
+    }
+  }
 
   deleteItems = id => {
-    console.log('delte');
     this.setState(({ contacts }) => {
       const newArr = contacts.filter(elem => elem.id !== id);
       return {
@@ -30,7 +33,6 @@ class Phonebook extends Component {
     const name = evt.target.name;
 
     this.setState({
-      //   id: shortid.generate(),
       [name]: value,
     });
   };
@@ -40,12 +42,10 @@ class Phonebook extends Component {
 
     const { name, number } = this.state;
     if (!name || !number) {
-      console.log('error');
       alert('Please fill all the fileds');
       return;
     }
     if (this.state.contacts.find(elem => elem.name.includes(name))) {
-      console.log('exist');
       alert(`This user: ${name} already exists in your book`);
       return;
     }
